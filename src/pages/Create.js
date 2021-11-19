@@ -12,6 +12,7 @@ import Radio from '@material-ui/core/Radio'
 import  RadioGroup  from '@material-ui/core/RadioGroup'
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import { useHistory } from 'react-router-dom';
 
 
 //Para agregar propio CSS
@@ -45,6 +46,7 @@ export default function Create() {
       
   //Usar Hook para CSS
       const classes = useStyles()
+      const history = useHistory()
 
   //Guardar caracteres ingresados en la pagina en un estado
       const [title, setTitle] = useState('')
@@ -73,7 +75,11 @@ export default function Create() {
 
         
         if(title && details) {
-          console.log(title, details, genero)
+          fetch('http://localhost:8000/notes', {
+              method: 'POST',
+              headers: {"Content-type" : "application/json"},
+              body: JSON.stringify({ title, details, genero })
+          }).then(() => history.push('/'))
         }
 
       }
