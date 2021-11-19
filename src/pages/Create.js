@@ -6,13 +6,37 @@ import Container  from '@material-ui/core/Container'
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import {makeStyles} from '@material-ui/core'  //se debe importar asi cuando es una funcion y no un componente
+
+//Para agregar propio CSS
+//react Hook starts with use
+const useStyles = makeStyles({
+  // //Agrega una clase btn
+  // btn: {
+  //   fontSize : 60,    //las propiedades no tienen - sino Letras matusculas en el medio
+  //   backgroundColor : 'violet',
+  //   '&:hover': { //Aplica hover state
+  //     backgroundColor: 'blue'
+  //   }
+  // },
+  // title: {
+  //   textDecoration : 'underline',
+  //   marginButtton: 20
+  // }
+
+
+})
 
 
 export default function Create() {
-  return (
+      
+  //Usar Hook para CSS
+      const classes = useStyles()
 
+  return (
       <Container>
       <Typography
+        className = {classes.title}
         variant = "h6"  // (changes display on screen)
         component = "h2"  //cambia el tipo de componente
         gutterBottom      //margin true automatically
@@ -22,6 +46,7 @@ export default function Create() {
       </Typography>
 
       <Button
+        className = {classes.btn} //Aplicar class de CSS
         onClick = { () => console.log('Submit') }
         type="submit"
         color= "secondary"
