@@ -3,6 +3,10 @@ import Typography from '@material-ui/core/Typography'
 import  Button  from '@material-ui/core/Button'
 import Container  from '@material-ui/core/Container'
 //import ButtonGroup from '@material-ui/core/ButtonGroup'
+import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
+import SendIcon from '@mui/icons-material/Send';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 
 export default function Create() {
   return (
@@ -23,6 +27,8 @@ export default function Create() {
         color= "secondary"
         variant="contained"
         //disableElevation
+        //startIcon = {<SendIcon/>}
+        endIcon = {<KeyboardArrowRightIcon />}
       >
         Submit
       </Button>
@@ -40,6 +46,17 @@ export default function Create() {
         <Button>Two</Button>
         <Button>Three</Button>
       </ButtonGroup> */}
+
+      {/* Icons */}
+      {/* <br/>
+      <AcUnitOutlinedIcon />
+      <AcUnitOutlinedIcon color = "secondary" fontSize = "large"/>
+      <AcUnitOutlinedIcon color = "secondary" fontSize = "small"/>
+      <AcUnitOutlinedIcon color = "action" fontSize = "small"/>
+      <AcUnitOutlinedIcon color = "error" fontSize = "small"/>
+      <AcUnitOutlinedIcon color = "disabled" fontSize = "small"/> */}
+
+
 
 </Container>
   )
