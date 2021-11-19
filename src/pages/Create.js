@@ -6,8 +6,12 @@ import Container  from '@material-ui/core/Container'
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import {makeStyles} from '@material-ui/core'  //se debe importar asi cuando es una funcion y no un componente
-import  TextField  from '@material-ui/core/TextField';
+import {FormControlLabel, makeStyles} from '@material-ui/core'  //se debe importar asi cuando es una funcion y no un componente
+import  TextField  from '@material-ui/core/TextField'
+import Radio from '@material-ui/core/Radio'
+import  RadioGroup  from '@material-ui/core/RadioGroup'
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 
 //Para agregar propio CSS
@@ -50,6 +54,8 @@ export default function Create() {
   const [titleError, setTitleError] = useState(false)
   const [detailsError, setDetailsError] = useState(false)
 
+  //Guardar valor del boton genero
+  const [genero, setGenero] = useState('sinEspecificar')
 
   //Prevent default action
       const handleSubmit = (e) => {
@@ -67,7 +73,7 @@ export default function Create() {
 
         
         if(title && details) {
-          console.log(title, details)
+          console.log(title, details, genero)
         }
 
       }
@@ -111,6 +117,18 @@ export default function Create() {
               required
               error = { detailsError }
             />
+
+            <FormControl className = {classes.field}>
+                <FormLabel>Especificar Genero</FormLabel>
+
+                <RadioGroup value = {genero} onChange = { (e) => {setGenero(e.target.value)}}>  {/*Allows to select only 1 radio button, value= se encarga de agregar uncvalor inicial*/} 
+                    <FormControlLabel value = "femenino" control ={<Radio />} label = "Femenino"/>
+                    <FormControlLabel value = "masculino" control ={<Radio />} label = "Masculino"/>
+                    <FormControlLabel value = "sinEspecificar" control ={<Radio />} label = "Sin especificar"/>
+
+                </RadioGroup>
+            </FormControl>
+
 
 
             <Button
