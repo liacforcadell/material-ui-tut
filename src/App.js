@@ -3,6 +3,7 @@ import Notes from './pages/Notes'
 import Create from './pages/Create'
 import {createTheme, ThemeProvider} from '@material-ui/core' //para crear un propio tema
 import { purple } from '@material-ui/core/colors'
+import Layout from './components/Layout'
 
 //CREAR THEME
 const myTheme = createTheme( {
@@ -26,14 +27,16 @@ function App() {
   return (
     <ThemeProvider theme = {myTheme}>
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <Notes />
-        </Route>
-        <Route path="/create">
-          <Create />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/">
+            <Notes />
+          </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
+        </Switch>
+      </Layout>
     </Router>
     </ThemeProvider>
   );
